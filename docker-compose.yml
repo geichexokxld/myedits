@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   app:
-    container_name: dhruvmirror4-mltb
+    container_name: dhruvmirror1-mltb
     build:
       context: .
       dockerfile: Dockerfile
