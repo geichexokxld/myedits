@@ -2,11 +2,11 @@ version: "3.3"
 
 services:
   app:
-    container_name: dhruvmirror1-mltb
+    container_name: dhruvmirror2-mltb
     build:
       context: .
       dockerfile: Dockerfile
     command: bash start.sh
     restart: on-failure
     ports:
-      - "8001:80"
+      - "8002:80"
