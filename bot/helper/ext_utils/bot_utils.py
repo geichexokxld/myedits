@@ -133,7 +133,7 @@ def get_readable_message():
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
             
             msg += f"\n\n<b>📁 Name:</b> <code>{escape(str(download.name()))}</code>"
-            msg += f" <b>Status : {download.status()}</b>"
+            msg += f"<b>\nStatus : {download.status()}</b>"
             if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_CONVERTING]:
                 msg += f"\n{get_progress_bar_string(download)} {download.progress()}"
                 msg += f"\n<b>Processed</b>: {get_readable_file_size(download.processed_bytes())} of {download.size()}"
@@ -169,7 +169,7 @@ def get_readable_message():
                 break
         if len(msg) == 0:
             return None, None
-        bmsg = f"\n<b>___________________________________</b>"  
+        bmsg = f"\n<b>______________________________</b>"  
         dl_speed = 0
         up_speed = 0
         for download in list(download_dict.values()):
