@@ -6,7 +6,7 @@ from time import time
 from urllib.parse import urlparse
 from urllib.request import urlopen
 
-from psutil import cpu_percent, disk_usage, virtual_memory
+from psutil import disk_usage, cpu_percent, swap_memory, cpu_count, virtual_memory, net_io_counters, boot_time
 from requests import request
 
 from bot import (BUTTON_NAMES, BUTTON_URLS, DOWNLOAD_DIR, botStartTime,
@@ -151,7 +151,7 @@ def get_readable_message():
                 msg += f" | <b>Time</b>: {download.seeding_time()}"
             else:
                 msg += f"\n<b>Size</b>: {download.size()}"
-            msg += f"\n<b>Task By</b>: <a href='{download.message.link}'>{download.source}</a> | <b>Id :</b> <code>{download.message.from_user.id}"
+            msg += f"\n<b>Task By</b>: <a href='{download.message.link}'>{download.source}</a>"
             msg += f"\n<b>Elapsed</b>: {get_readable_time(time() - download.message.date.timestamp())}"
             if hasattr(download, 'playList'):
                 try:
