@@ -116,8 +116,8 @@ def get_progress_bar_string(status):
     p = 0 if total == 0 else round(completed * 100 / total)
     p = min(max(p, 0), 100)
     cFull = p // 8
-    p_str = '■' * cFull
-    p_str += '□' * (12 - cFull)
+    p_str = '▰' * cFull
+    p_str += '▱' * (12 - cFull)
     return f"[{p_str}]"
 
 def get_readable_message():
@@ -198,7 +198,7 @@ def get_readable_message():
 def _get_readable_message_btns(msg, bmsg):
     buttons = ButtonMaker()
     buttons.sbutton("<<", "status pre")
-    buttons.sbutton(f"{PAGE_NO}/{PAGES} ♻️", "status ref")
+    buttons.sbutton(f"{PAGE_NO}/{PAGES} Refresh", "status ref")
     buttons.sbutton(">>", "status nex")
     button = buttons.build_menu(3)
     return msg + bmsg, button
