@@ -201,7 +201,7 @@ def get_readable_message():
 def _get_readable_message_btns(msg, bmsg):
     buttons = ButtonMaker()
     buttons.sbutton("<<", "status pre")
-    buttons.sbutton(f"{PAGE_NO}/{PAGES} Refresh", "status ref")
+    buttons.sbutton(f"{PAGE_NO}/{PAGES} ♻️", "status ref")
     buttons.sbutton(">>", "status nex")
     button = buttons.build_menu(3)
     return msg + bmsg, button
