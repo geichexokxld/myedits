@@ -34,17 +34,22 @@ def stats(update, context):
         last_commit = check_output(["git log -1 --date=short --pretty=format:'%cd <b>From</b> %cr'"], shell=True).decode()
     else:
         last_commit = 'No UPSTREAM_REPO'
-    stats = f'<b><i><u>Dhruv Mirror Statistics</u></i></b>\n\n'\
-            f'<b>Updated:</b> <code>{last_commit}</code>\n'\
-            f'<b>I am Working For:</b> <code>{get_readable_time(time() - botStartTime)}</code>\n'\
-            f'<b>Total Disk :/b> <code>{get_readable_file_size(total)}</code>\n'\
-            f'<b>Used : </b> <code>{get_readable_file_size(used)}</code> | <b>Free : </b> <code>{get_readable_file_size(free)}</code>\n'\
-            f'<b>Upload : </b> <code>{get_readable_file_size(net_io_counters().bytes_sent)}</code>\n'\
-            f'<b>Download : </b> <code>{get_readable_file_size(net_io_counters().bytes_recv)}</code>\n'\
-            f'<b>CPU</b>: <code>{cpu_percent(interval=0.5)}%</code>\n'\
-            f'<b>RAM : </b> <code>{memory.percent}%</code>\n'\
-            f'<b>DISK : </b> <code>{disk}%</code>\n'\
-   
+    stats = f'<b>Commit Date</b>: {last_commit}\n\n'\
+            f'<b>Bot Uptime</b>: {get_readable_time(time() - botStartTime)}\n'\
+            f'<b>OS Uptime</b>: {get_readable_time(time() - boot_time())}\n\n'\
+            f'<b>Total Disk Space </b>: {get_readable_file_size(total)}\n'\
+            f'<b>Used</b>: {get_readable_file_size(used)} | <b>Free</b>: {get_readable_file_size(free)}\n\n'\
+            f'<b>Upload</b>: {get_readable_file_size(net_io_counters().bytes_sent)}\n'\
+            f'<b>Download</b>: {get_readable_file_size(net_io_counters().bytes_recv)}\n\n'\
+            f'<b>CPU</b>: {cpu_percent(interval=0.5)}%\n'\
+            f'<b>RAM</b>: {memory.percent}%\n'\
+            f'<b>DISK</b>: {disk}%\n\n'\
+            f'<b>Physical Cores</b>: {cpu_count(logical=False)}\n'\
+            f'<b>Total Cores</b>: {cpu_count(logical=True)}\n\n'\
+            f'<b>SWAP</b>: {get_readable_file_size(swap.total)} | <b>Used</b>: {swap.percent}%\n'\
+            f'<b>Memory Total</b>: {get_readable_file_size(memory.total)}\n'\
+            f'<b>Memory Free</b>: {get_readable_file_size(memory.available)}\n'\
+            f'<b>Memory Used</b>: {get_readable_file_size(memory.used)}\n'
     sendMessage(stats, context.bot, update.message)
 
 def start(update, context):
