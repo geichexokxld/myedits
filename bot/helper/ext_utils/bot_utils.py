@@ -132,7 +132,7 @@ def get_readable_message():
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
             
-            msg += f"\n\n<b>📁 Name:</b> <code>{escape(str(download.name()))}</code>"
+            msg += f"\n<b>📁 Name:</b> <code>{escape(str(download.name()))}</code>"
             msg += f"<b>\nStatus : {download.status()}</b>"
             if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_CONVERTING]:
                 msg += f"\n{get_progress_bar_string(download)} {download.progress()}"
@@ -164,7 +164,7 @@ def get_readable_message():
             msg += f"\n<b>Upload</b>: {download.mode()}"
             if download.status() != MirrorStatus.STATUS_CONVERTING:
                 msg += f"\n<b>Stop</b>: <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
-            msg += "\n\n"
+            msg += "\n"
             if STATUS_LIMIT and index == STATUS_LIMIT:
                 break
         if len(msg) == 0:
