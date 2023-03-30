@@ -248,13 +248,13 @@ Check all available qualities options <a href="https://github.com/yt-dlp/yt-dlp#
         rmsg = f'''
 Send Leech Prefix. Timeout: 60 sec
 Examples:
-1. <code>{escape('<b>@DhruvMirrorUpdates</b>')}</code> 
+1. <code>{escape('<b>@DhruvMirrorPremium</b>')}</code> 
 This will give output of:
-<b>@DhruvMirrorUpdates</b>  <code>50MB.bin</code>.
+<b>@DhruvMirrorPremium</b>  <code>50MB.bin</code>.
 
-2. <code>{escape('<code>@JMDKH_Team</code>')}</code> 
+2. <code>{escape('<code>@DhruvMirrorPremium</code>')}</code> 
 This will give output of:
-<code>@DhruvMirrorUpdates</code> <code>50MB.bin</code>.
+<code>@DhruvMirrorPremium</code> <code>50MB.bin</code>.
 
 Check all available formatting options <a href="https://core.telegram.org/bots/api#formatting-options">HERE</a>.
         '''

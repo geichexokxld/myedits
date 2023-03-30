@@ -69,7 +69,7 @@ class TelegraphHelper:
                     nxt_page += 1
             self.edit_page(
                 path = path[prev_page],
-                title = 'Jmdkh-mltb Torrent Search',
+                title = 'Dhruv-Mirror Torrent Search',
                 content=content
             )
         return
@@ -82,4 +82,4 @@ class TelegraphHelper:
             LOGGER.error(f'Failed Revoking telegraph access token due to : {e}')
 
 
-telegraph=TelegraphHelper('Jmdkh-mltb', 'https://github.com/junedkh/jmdkh-mltb')
+telegraph=TelegraphHelper('Dhruv Mirror', 'https://t.me/dhruvmirrorupdates')

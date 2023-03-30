@@ -57,7 +57,7 @@ def start(update, context):
         start_string = 'Bot Started.\n' \
                     'Now I will send your files or links here.\n'
     else:
-        start_string = 'Checkout @DHruvMirrorUpdates if you havent\n' \
+        start_string = 'Checkout @DhruvMirrorUpdates if you havent\n' \
                     'This bot can Mirror all your links To Google Drive!\n' \
                     '👨🏽‍💻 Owned by Juned & Modified by @DhruvMirrorUpdates.'
     sendMessage(start_string, context.bot, update.message)
