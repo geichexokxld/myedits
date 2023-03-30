@@ -122,7 +122,7 @@ def get_progress_bar_string(status):
 
 def get_readable_message():
     with download_dict_lock:
-        msg = '<b>Powered By <a href="https://t.me/DhruvMirrorUpdates"><u>Dhruv Mirror Premium</u></a>\n\n</b>'
+        msg = f"Powered By <b><u><i>Dhruv Mirror Premium</i></u></b>"
         STATUS_LIMIT = config_dict['STATUS_LIMIT']
         if STATUS_LIMIT:
             tasks = len(download_dict)
@@ -132,7 +132,7 @@ def get_readable_message():
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
             
-            msg += f"\n<b>📁 Name:</b> <code>{escape(str(download.name()))}</code>"
+            msg += f"\n\n<b>📁 Name:</b> <code>{escape(str(download.name()))}</code>"
             msg += f"<b>\nStatus : {download.status()}</b>"
             if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_CONVERTING]:
                 msg += f"\n{get_progress_bar_string(download)} {download.progress()}"
@@ -164,7 +164,7 @@ def get_readable_message():
             msg += f"\n<b>Upload</b>: {download.mode()}"
             if download.status() != MirrorStatus.STATUS_CONVERTING:
                 msg += f"\n<b>Stop</b>: <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
-            msg += "\n"
+            msg += "\n\n"
             if STATUS_LIMIT and index == STATUS_LIMIT:
                 break
         if len(msg) == 0:
